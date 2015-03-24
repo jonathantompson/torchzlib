@@ -55,6 +55,9 @@ static int torchzlib_(Main_compress)(lua_State *L) {
   
   int temp_buffer_size = deflateBound(&strm, src_data_size);
   uint8_t* temp_buffer = (uint8_t*)malloc(temp_buffer_size);
+  if (temp_buffer == NULL) {
+    luaL_error(L, "Could not malloc temporary memory");
+  }
   
   strm.next_out = temp_buffer;
   strm.avail_out = temp_buffer_size;
