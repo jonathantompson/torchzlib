@@ -23,3 +23,18 @@ data_compressed = torch.CompressedTensor(data, 2)  -- Compress using slow compre
 
 data_decompressed = data_compressed:decompress()
 ```
+
+To compare libpng vs torchzlib compression ratios:
+
+```lua
+require 'torchzlib'
+require 'image'
+
+im = image.lena()
+torch.save('image.bin', im)  -- Baseline
+image.savePNG('image.png', im)  -- PNG compression
+torch.save('image.zlib', torch.CompressedTensor(im, 2))  -- zlib compression
+os.execute('gzip -c image.bin > image.bin.gz')  -- zlib compression from the command line (Linux)
+```
+
+Note: png is not just zlib.  It's also uses a preprocessing step (called delta filtering) that enables extremely high compression ratios on images once the output is passed through DEFLATE.  In the above example ```image.bin.gz``` should be approximately the same size as ```image.zlib```.
