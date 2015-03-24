@@ -16,10 +16,7 @@ for _, cur_type in pairs(test_types) do
     assert(torch.type(data_decompressed) == cur_type)
 
     local err = data_decompressed - data
-    if err.abs ~= nil then
-      err = err:abs()
-    end
-    assert(err:max() == 0)  -- Lossless!  It should be exactly the same
+    assert(err:max() == 0 and err:min() == 0)  -- Lossless!  It should be exactly the same
   end
 end
 
