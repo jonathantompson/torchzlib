@@ -2,3 +2,8 @@ build
 
 tmp.bin
 *.swp
+image.bin
+image.bin.gz
+image.filtered.zlib
+image.png
+image.zlib
