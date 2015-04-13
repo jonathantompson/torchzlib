@@ -25,6 +25,8 @@ function CompressedTensor:__init(tensor, quality, apply_sub_filter)
     local sz = filt_tensor:size(dim)
     filt_tensor:narrow(dim, 2, sz-1):add(-1, tensor:narrow(dim, 1, sz-1))
   end
+
+  filt_tensor = filt_tensor:contiguous()
   
   -- Compress the tensor
   tensor.torchzlib.compress(filt_tensor, self.data, self.quality)
