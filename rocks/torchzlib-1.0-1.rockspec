@@ -11,7 +11,6 @@ description = {
    license = "None"
 }
 dependencies = {
-   "torch >= 7.0",
 }
 
 build = {
