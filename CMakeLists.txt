@@ -5,6 +5,8 @@ FIND_PACKAGE(Torch REQUIRED)
 
 ADD_SUBDIRECTORY(zlib)
 
+INCLUDE_DIRECTORIES(${CMAKE_BINARY_DIR}/zlib)
+
 SET(src torchzlib.c)
 
 FILE(GLOB luasrc *.lua)
