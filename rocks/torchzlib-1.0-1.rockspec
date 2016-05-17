@@ -1,7 +1,7 @@
 package = "torchzlib"
 version = "1.0-1"
 source = {
-   url = "..."
+   url = "git://github.com/jonathantompson/torchzlib.git"
 }
 description = {
    summary = "A utility library for zlib compression / decompression of tensors",
