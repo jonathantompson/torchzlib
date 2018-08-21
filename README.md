@@ -11,7 +11,7 @@ After cloning the library, do a local luarocks build:
 ```
 git clone git@github.com:jonathantompson/torchzlib.git
 cd torchzlib
-luarocks make torchzlib-1.0-1.rockspec
+luarocks make rocks/torchzlib-1.0-1.rockspec
 ```
 
 API / Usage
